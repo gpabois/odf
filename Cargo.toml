@@ -1,0 +1,10 @@
+[package]
+name = "odf"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+html_parser = "0.6.3"
+minidom = "0.15.0"
+zip = { version = "0.6.3", default-features = false }
+odf_macros = { path = "../odf_macros" }
