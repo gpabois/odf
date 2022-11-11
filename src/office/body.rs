@@ -1,67 +1,24 @@
 use super::{text::Text, chart::Chart, database::Database, drawing::Drawing, presentation::Presentation, spreadsheet::Spreadsheet, image::Image};
+use crate::element::OpenDocumentElement;
 
+use odf_macros::{define_child_elements, define_element};
+use crate::ns::OFFICE_NS;
+
+#[define_element(
+    namespace = "OFFICE_NS",
+    name = "body",
+    children="BodyChildElement"
+)]
 #[derive(Default)]
-pub struct Body {
-    chidren: Vec<BodyChildElement>
-}
+pub struct Body {}
 
 impl Body 
 {
     fn add(&mut self, child: impl Into<BodyChildElement>)
     {
-        self.chidren.push(child.into())
+        self.children.push(child.into())
     }
 }
 
-pub enum BodyChildElement
-{
-    Text(Text),
-    Chart(Chart),
-    Database(Database),
-    Drawing(Drawing),
-    Image(Image),
-    Presentation(Presentation),
-    Spreadsheet(Spreadsheet)
-}
-
-impl From<Text> for BodyChildElement
-{
-    fn from(t: Text) -> Self {
-        Self::Text(t)
-    }
-}
-
-impl From<Chart> for BodyChildElement
-{
-    fn from(c: Chart) -> Self {
-        Self::Chart(c)
-    }
-}
-
-impl From<Database> for BodyChildElement
-{
-    fn from(d: Database) -> Self {
-        Self::Database(d)
-    }
-}
-
-impl From<Drawing> for BodyChildElement
-{
-    fn from(d: Drawing) -> Self {
-        Self::Drawing(d)
-    }
-}
-
-impl From<Image> for BodyChildElement
-{
-    fn from(i: Image) -> Self {
-        Self::Image(i)
-    }
-}
-
-impl From<Presentation> for BodyChildElement 
-{
-    fn from(p: Presentation) -> Self {
-        Self::Presentation(p)
-    }
-}
+#[define_child_elements(Text, Database, Chart, Drawing, Image, Presentation, Spreadsheet)]
+pub enum BodyChildElement {}

@@ -1,61 +1,45 @@
-use crate::{dr3d::Scene, draw::{A, Caption, Circle, Connector, Control, CustomShape, Ellipse, Frame, G, Line, Measure, PageThumbnail, Path, Polygon, Polyline, Rect, RegularPolygon}, table::{CalculationSettings, Consolidation, ContentValidations, DataPilotTables, DatabasesRanges, DdeLinks, LabelRanges, NamedExpressions, Table}, text::{AlphabeticalIndex, AlphabeticalIndexAutoMarkFile, Bibliography, Change, ChangeEnd, ChangeStart, DdeConnectionDecls, H, IllustrationIndex, List, NumberedParagraph, ObjectIndex, P, PageSequence, Section, SequenceDecls, SoftPageBreak, TableIndex, TableOfContent, TrackedChanges, UserFieldDecls, VariableDecls, UserIndex}};
+use crate::{table::{Table}, text::{AlphabeticalIndex, AlphabeticalIndexAutoMarkFile, Bibliography, Change, ChangeEnd, ChangeStart, DdeConnectionDecls, H, IllustrationIndex, List, NumberedParagraph, ObjectIndex, P, PageSequence, Section, SequenceDecls, SoftPageBreak, TableIndex, TableOfContent, TrackedChanges, UserFieldDecls, VariableDecls, UserIndex}, element::OpenDocumentElement};
+use crate::dr3d;
+use crate::draw;
+use crate::table;
+use crate::ns::OFFICE_NS;
+use std::str::FromStr;
 
+use minidom::{Element};
+use odf_macros::{define_child_elements, define_element};
+
+#[define_element(
+    namespace = "OFFICE_NS",
+    name = "text",
+    children = "TextChildElement",
+    attributes(name="global", prefix="text", att_type="bool")
+)]
 #[derive(Default)]
-pub struct Text{
-    children: Vec<TextChildElement>
+pub struct Text {}
+
+impl Text {
+    pub fn add(&mut self, child: impl Into<TextChildElement>) {
+        self.children.push(child.into());
+    }
 }
 
+#[define_child_elements(
+    dr3d::Scene,
+    draw::A, draw::Caption, draw::Circle, draw::Connector,
+    draw::Control, draw::CustomShape, draw::Ellipse, draw::Frame,
+    draw::G, draw::Line, draw::Measure, draw::PageThumbnail, draw::Path,
+    draw::Polygon, draw::Polyline, draw::Rect, draw::RegularPolygon,
+    table::CalculationSettings, table::Consolidation, table::ContentValidations,
+    table::DataPilotTables, table::DatabasesRanges, table::DdeLinks,
+    table::LabelRanges, table::NamedExpressions, Table,
+    AlphabeticalIndex, AlphabeticalIndexAutoMarkFile, 
+    Bibliography,
+    Change, ChangeEnd, ChangeStart,
+    DdeConnectionDecls,
+    H, IllustrationIndex, List, NumberedParagraph, ObjectIndex,
+    P, PageSequence, Section, SequenceDecls, SoftPageBreak,
+    TableIndex, TableOfContent, TrackedChanges, UserFieldDecls, UserIndex, VariableDecls)]
 pub enum TextChildElement
 {
-    Dr3dScene(Scene),
-    DrawA(A),
-    DrawCaption(Caption),
-    DrawCircle(Circle),
-    DrawConnector(Connector),
-    DrawControl(Control),
-    DrawCustomShape(CustomShape),
-    DrawEllipse(Ellipse),
-    DrawFrame(Frame),
-    DrawG(G),
-    DrawLine(Line),
-    DrawMeasure(Measure),
-    DrawPageThumbnail(PageThumbnail),
-    DrawPath(Path),
-    DrawPolygon(Polygon),
-    DrawPolyline(Polyline),
-    DrawRect(Rect),
-    DrawRegularPolygon(RegularPolygon),
-    // office:forms
-    TableCalculationSettings(CalculationSettings),
-    TableConsolidation(Consolidation),
-    TableContentValidations(ContentValidations),
-    TableDataPilotTables(DataPilotTables),
-    TableDatabaseRanges(DatabasesRanges),
-    TableDdeLinks(DdeLinks),
-    TableLabelRanges(LabelRanges),
-    TableNamedExpressions(NamedExpressions),
-    Table(Table),
-    AlphabeticalIndex(AlphabeticalIndex),
-    AlphabeticalIndexAutoMarkFile(AlphabeticalIndexAutoMarkFile),
-    Bibliography(Bibliography),
-    Change(Change),
-    ChangeEnd(ChangeEnd),
-    ChangeStart(ChangeStart),
-    DdeConnectionDecls(DdeConnectionDecls),
-    H(H),
-    IllustrationIndex(IllustrationIndex),
-    List(List),
-    NumberedParagraph(NumberedParagraph),
-    ObjectIndex(ObjectIndex),
-    P(P),
-    PageSequence(PageSequence),
-    Section(Section),
-    SequenceDecls(SequenceDecls),
-    SoftPageBreak(SoftPageBreak),
-    TableIndex(TableIndex),
-    TableOfContent(TableOfContent),
-    TrackedChanges(TrackedChanges),
-    UserFieldDecls(UserFieldDecls),
-    UserIndex(UserIndex),
-    VariableDecls(VariableDecls)
+    // Non implémenté: office:forms
 }

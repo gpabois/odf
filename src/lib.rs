@@ -1,5 +1,6 @@
 extern crate odf_macros;
 
+pub mod element;
 pub mod office;
 pub mod manifest;
 pub mod draw;
@@ -8,6 +9,7 @@ pub mod dc;
 pub mod meta;
 pub mod table;
 pub mod text;
+pub mod ns;
 
 use std::io::Write;
 
@@ -106,10 +108,8 @@ impl OpenDocument {
 
 #[cfg(test)]
 mod tests {
-    use std::borrow::BorrowMut;
-
     use super::{OpenDocument, Result};
-    use super::text::Paragraph;
+    use super::text::P;
 
     #[test]
     fn test_save_file() -> Result<()>
