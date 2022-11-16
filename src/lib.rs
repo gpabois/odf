@@ -10,8 +10,7 @@ pub mod meta;
 pub mod table;
 pub mod text;
 pub mod ns;
-
-use std::io::Write;
+pub mod utils;
 
 use minidom::Element;
 
@@ -33,7 +32,27 @@ pub enum Error
 {
     IOError(std::io::Error),
     ZipError(zip::result::ZipError),
-    XMLError(minidom::error::Error)
+    XMLError(minidom::error::Error),
+    ParsingError(ParsingError),
+}
+
+#[derive(Debug)]
+pub enum ParsingError
+{
+    MissingChildElement(String)
+}
+
+impl ParsingError {
+    pub fn missing_element(child_type: String) -> Self {
+        Self::MissingChildElement(child_type)
+    }
+}
+
+impl From<ParsingError> for Error
+{
+    fn from(e: ParsingError) -> Self {
+        Error::ParsingError(e)
+    }
 }
 
 impl From<std::io::Error> for Error
@@ -60,27 +79,27 @@ impl From<minidom::error::Error> for Error
 pub type Result<T> = std::result::Result<T, Error>;
 
 impl OpenDocument {
-    pub fn save(&self, w: impl std::io::Write + std::io::Seek) -> Result<()>
+    pub fn save(self, w: impl std::io::Write + std::io::Seek) -> Result<()>
     {
         let mut zip = zip::ZipWriter::new(w);
         
         // Write content.xml
         {
-            let content_element: Element = (&self.content).into();
+            let content_element: Element = self.content.into();
             zip.start_file("content.xml", Default::default()).map_err(Error::from)?;
             content_element.write_to(&mut zip).map_err(Error::from)?;
         }
 
         // Write styles.xml
         {
-            let styles_element: Element = (&self.styles).into();
+            let styles_element: Element = self.styles.into();
             zip.start_file("styles.xml", Default::default()).map_err(Error::from)?;
             styles_element.write_to(&mut zip).map_err(Error::from)?;
         }
 
         // Write meta.xml
         {
-            let meta_element: Element = (&self.meta).into();
+            let meta_element: Element = self.meta.into();
             zip.start_file("meta.xml", Default::default()).map_err(Error::from)?;
             meta_element.write_to(&mut zip).map_err(Error::from)?;
 
@@ -88,7 +107,7 @@ impl OpenDocument {
 
         // Write settings.xml
         {
-            let settings_element: Element = (&self.settings).into();
+            let settings_element: Element = self.settings.into();
             zip.start_file("settings.xml", Default::default()).map_err(Error::from)?;
             settings_element.write_to(&mut zip).map_err(Error::from)?;
         }
@@ -99,7 +118,7 @@ impl OpenDocument {
         Ok(())
     }
 
-    pub fn save_to_file(&self, path: impl Into<std::path::PathBuf>) -> Result<()>
+    pub fn save_to_file(self, path: impl Into<std::path::PathBuf>) -> Result<()>
     {
         let file = std::fs::File::create(path.into()).unwrap();   
         self.save(file)   
@@ -109,7 +128,6 @@ impl OpenDocument {
 #[cfg(test)]
 mod tests {
     use super::{OpenDocument, Result};
-    use super::text::P;
 
     #[test]
     fn test_save_file() -> Result<()>

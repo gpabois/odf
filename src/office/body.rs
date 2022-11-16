@@ -1,5 +1,4 @@
 use super::{text::Text, chart::Chart, database::Database, drawing::Drawing, presentation::Presentation, spreadsheet::Spreadsheet, image::Image};
-use crate::element::OpenDocumentElement;
 
 use odf_macros::{define_child_elements, define_element};
 use crate::ns::OFFICE_NS;

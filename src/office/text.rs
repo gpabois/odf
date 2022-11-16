@@ -1,18 +1,15 @@
-use crate::{table::{Table}, text::{AlphabeticalIndex, AlphabeticalIndexAutoMarkFile, Bibliography, Change, ChangeEnd, ChangeStart, DdeConnectionDecls, H, IllustrationIndex, List, NumberedParagraph, ObjectIndex, P, PageSequence, Section, SequenceDecls, SoftPageBreak, TableIndex, TableOfContent, TrackedChanges, UserFieldDecls, VariableDecls, UserIndex}, element::OpenDocumentElement};
-use crate::dr3d;
+use crate::{table::{Table}, text::{AlphabeticalIndex, AlphabeticalIndexAutoMarkFile, Bibliography, Change, ChangeEnd, ChangeStart, DdeConnectionDecls, H, IllustrationIndex, List, NumberedParagraph, ObjectIndex, P, PageSequence, Section, SequenceDecls, SoftPageBreak, TableIndex, TableOfContent, TrackedChanges, UserFieldDecls, VariableDecls, UserIndex}};
+use crate::{dr3d};
 use crate::draw;
 use crate::table;
 use crate::ns::OFFICE_NS;
-use std::str::FromStr;
 
-use minidom::{Element};
 use odf_macros::{define_child_elements, define_element};
 
 #[define_element(
     namespace = "OFFICE_NS",
     name = "text",
-    children = "TextChildElement",
-    attributes(name="global", prefix="text", att_type="bool")
+    children = "TextChildElement"
 )]
 #[derive(Default)]
 pub struct Text {}

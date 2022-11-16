@@ -1,7 +1,5 @@
-use minidom::Element;
 use odf_macros::define_element;
 
-use crate::element::OpenDocumentElement;
 use crate::ns::DRAWING_NS;
 
 #[define_element(
