@@ -1,9 +1,9 @@
-pub mod creator;
-pub mod date;
-pub mod description;
-pub mod language;
-pub mod subject;
-pub mod title;
+mod creator;
+mod date;
+mod description;
+mod language;
+mod subject;
+mod title;
 
 pub use creator::Creator;
 pub use date::Date;

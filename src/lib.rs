@@ -11,6 +11,12 @@ pub mod table;
 pub mod text;
 pub mod ns;
 pub mod utils;
+pub mod presentation;
+pub mod chart;
+pub mod config;
+pub mod style;
+pub mod number;
+pub mod svg;
 
 use minidom::Element;
 
@@ -118,7 +124,8 @@ impl OpenDocument {
         Ok(())
     }
 
-    pub fn save_to_file(self, path: impl Into<std::path::PathBuf>) -> Result<()>
+    pub fn save_to_file(
+        self, path: impl Into<std::path::PathBuf>) -> Result<()>
     {
         let file = std::fs::File::create(path.into()).unwrap();   
         self.save(file)   

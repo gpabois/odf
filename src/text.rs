@@ -25,6 +25,13 @@ pub struct Bibliography {}
 
 #[define_element(
     namespace = "TEXT_NS",
+    name = "bibliography-configuration"
+)]
+#[derive(Default)]
+pub struct BibliographyConfiguration{}
+
+#[define_element(
+    namespace = "TEXT_NS",
     name = "change"
 )]
 #[derive(Default)]
@@ -173,3 +180,31 @@ pub struct UserIndex {}
 )]
 #[derive(Default)]
 pub struct VariableDecls {}
+
+#[define_element(
+    namespace = "TEXT_NS",
+    name = "linenumbering-configuration"
+)]
+#[derive(Default)]
+pub struct LinenumberingConfiguration {}
+
+#[define_element(
+    namespace = "TEXT_NS",
+    name = "list-style"
+)]
+#[derive(Default)]
+pub struct ListStyle {}
+
+#[define_element(
+    namespace = "TEXT_NS",
+    name = "notes-configuration"
+)]
+#[derive(Default)]
+pub struct NotesConfiguration {}
+
+#[define_element(
+    namespace = "TEXT_NS",
+    name = "outline-style"
+)]
+#[derive(Default)]
+pub struct OutlineStyle {}

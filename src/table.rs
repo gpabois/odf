@@ -40,10 +40,10 @@ pub struct DataPilotTables {}
 
 #[define_element(
     namespace = "TABLE_NS",
-    name = "databases-ranges",
+    name = "database-ranges",
 )]
 #[derive(Default)]
-pub struct DatabasesRanges {}
+pub struct DatabaseRanges {}
 
 #[define_element(
     namespace = "TABLE_NS",
@@ -65,3 +65,17 @@ pub struct LabelRanges {}
 )]
 #[derive(Default)]
 pub struct NamedExpressions {}
+
+#[define_element(
+    namespace = "TABLE_NS",
+    name = "tracked-changes",
+)]
+#[derive(Default)]
+pub struct TrackedChanges {}
+
+#[define_element(
+    namespace = "TABLE_NS",
+    name = "table-template",
+)]
+#[derive(Default)]
+pub struct TableTemplate{}

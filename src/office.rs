@@ -1,24 +1,26 @@
-pub mod document_content;
-pub mod document_styles;
-pub mod document_meta;
-pub mod document_settings;
+mod document_content;
+mod document_styles;
+mod document_meta;
+mod document_settings;
 
-pub mod body;
-pub mod automatic_styles;
-pub mod styles;
-pub mod master_styles;
-pub mod font_face_decls;
-pub mod scripts;
-pub mod meta;
-pub mod settings;
+mod body;
+mod automatic_styles;
+mod styles;
+mod master_styles;
+mod font_face_decls;
+mod scripts;
+mod meta;
+mod settings;
 
-pub mod text;
-pub mod chart;
-pub mod database;
-pub mod drawing;
-pub mod image;
-pub mod presentation;
-pub mod spreadsheet;
+mod text;
+mod chart;
+mod database;
+mod drawing;
+mod image;
+mod presentation;
+mod spreadsheet;
+
+mod event_listeners;
 
 pub use document_content::DocumentContent;
 pub use document_meta::DocumentMeta;

@@ -1,8 +1,3 @@
-use odf_macros::define_element;
+mod scene;
 
-#[define_element(
-    namespace = "crate::ns::DR3D_NS",
-    name = "scene"
-)]
-#[derive(Default)]
-pub struct Scene {}
+pub use scene::Scene;

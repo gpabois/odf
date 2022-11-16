@@ -13,7 +13,7 @@ pub struct Body {}
 
 impl Body 
 {
-    fn add(&mut self, child: impl Into<BodyChildElement>)
+    pub fn add(&mut self, child: impl Into<BodyChildElement>)
     {
         self.children.push(child.into())
     }

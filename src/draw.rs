@@ -1,123 +1,51 @@
-use odf_macros::define_element;
+mod a;
+mod caption;
+mod circle;
+mod connector;
+mod control;
+mod custom_shape;
+mod ellipse;
+mod frame;
+mod g;
+mod line;
+mod measure;
+mod page_thumbnail;
+mod path;
+mod polygon;
+mod polyline;
+mod rect;
+mod regular_polygon;
+mod page;
+mod fill_image;
+mod hatch;
+mod gradient;
+mod marker;
+mod opacity;
+mod layer_set;
+mod stroke_dash;
 
-use crate::ns::DRAWING_NS;
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "a"
-)]
-#[derive(Default)]
-pub struct A {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "caption"
-)]
-#[derive(Default)]
-pub struct Caption {}
-
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "circle"
-)]
-#[derive(Default)]
-pub struct Circle {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "connector"
-)]
-#[derive(Default)]
-pub struct Connector {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "control"
-)]
-#[derive(Default)]
-pub struct Control {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "custom-shape"
-)]
-#[derive(Default)]
-pub struct CustomShape {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "ellipse"
-)]
-#[derive(Default)]
-pub struct Ellipse {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "frame"
-)]
-#[derive(Default)]
-pub struct Frame {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "g"
-)]
-#[derive(Default)]
-pub struct G {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "line"
-)]
-#[derive(Default)]
-pub struct Line {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "measure"
-)]
-#[derive(Default)]
-pub struct Measure {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "page-thumbnail"
-)]
-#[derive(Default)]
-pub struct PageThumbnail {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "path"
-)]
-#[derive(Default)]
-pub struct Path {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "polygon"
-)]
-#[derive(Default)]
-pub struct Polygon {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "polyline"
-)]
-#[derive(Default)]
-pub struct Polyline {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "rect"
-)]
-#[derive(Default)]
-pub struct Rect {}
-
-#[define_element(
-    namespace = "DRAWING_NS",
-    name = "regular-polygon"
-)]
-#[derive(Default)]
-pub struct RegularPolygon {}
+pub use a::A;
+pub use caption::Caption;
+pub use circle::Circle;
+pub use connector::Connector;
+pub use control::Control;
+pub use custom_shape::CustomShape;
+pub use ellipse::Ellipse;
+pub use frame::Frame;
+pub use g::G;
+pub use line::Line;
+pub use measure::Measure;
+pub use page_thumbnail::PageThumbnail;
+pub use path::Path;
+pub use polygon::Polygon;
+pub use polyline::Polyline;
+pub use rect::Rect;
+pub use regular_polygon::RegularPolygon;
+pub use page::Page;
+pub use fill_image::FillImage;
+pub use hatch::Hatch;
+pub use gradient::Gradient;
+pub use marker::Marker;
+pub use opacity::Opacity;
+pub use stroke_dash::StrokeDash;
+pub use layer_set::LayerSet;
