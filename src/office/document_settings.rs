@@ -1,7 +1,7 @@
 use odf_macros::define_element;
 use crate::ns::OFFICE_NS;
 use super::settings::Settings;
-use std::str::FromStr;
+
 
 #[define_element(
     setup_prefixes="true",

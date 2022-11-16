@@ -2,7 +2,7 @@ use super::font_face_decls::FontFaceDecls;
 use super::automatic_styles::AutomaticStyles;
 use super::body::Body;
 use super::scripts::Scripts;
-use std::str::FromStr;
+
 use odf_macros::define_element;
 
 #[define_element(

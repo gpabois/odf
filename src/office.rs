@@ -19,6 +19,8 @@ mod drawing;
 mod image;
 mod presentation;
 mod spreadsheet;
+mod annotation;
+mod annotation_end;
 
 mod event_listeners;
 
@@ -26,3 +28,6 @@ pub use document_content::DocumentContent;
 pub use document_meta::DocumentMeta;
 pub use document_settings::DocumentSettings;
 pub use document_styles::DocumentStyles;
+
+pub use annotation::Annotation;
+pub use annotation_end::AnnotationEnd;

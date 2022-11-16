@@ -1,210 +1,107 @@
-use odf_macros::define_element;
-use crate::ns::TEXT_NS;
+mod alphabetical_index;
+mod alphabetical_index_auto_mark_file;
+mod bibliography;
+mod bibliography_configuration;
+mod change;
+mod change_end;
+mod change_start;
+mod dde_connection_decls;
+mod h;
+mod illustration_index;
+mod list;
+mod numbered_paragraph;
+mod object_index;
+mod p;
+mod page_sequence;
+mod section;
+mod sequence_decls;
+mod soft_page_break;
+mod table_index;
+mod table_of_content;
+mod table;
+mod tracked_changes;
+mod user_field_decls;
+mod user_index;
+mod variable_decls;
+mod linenumbering_configuration;
+mod line_style;
+mod notes_configuration;
+mod outline_style;
+mod a;
+mod alphabetical_index_mark;
+mod alphabetical_index_mark_end;
+mod author_initials;
+mod author_name;
+mod bibliography_mark;
+mod bookmark;
+mod bookmark_end;
+mod bookmark_ref;   
+mod bookmark_start;
+mod chapter;
+mod character_count;
+mod conditional_text;
+mod creation_date;
+mod creation_time;
+mod creator;
+mod database_display;
+mod database_name;
+mod database_next;
+mod database_row_number;
+mod database_row_select;
+mod date;
+mod dde_connection;
+mod description;
 
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "alphabetical-index"
-)]
-#[derive(Default)]
-pub struct AlphabeticalIndex {}
-
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "alphabetical-index-auto-mark-file"
-)]
-#[derive(Default)]
-pub struct AlphabeticalIndexAutoMarkFile {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "bibliography"
-)]
-#[derive(Default)]
-pub struct Bibliography {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "bibliography-configuration"
-)]
-#[derive(Default)]
-pub struct BibliographyConfiguration{}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "change"
-)]
-#[derive(Default)]
-pub struct Change {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "change-end"
-)]
-#[derive(Default)]
-pub struct ChangeEnd {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "change-start"
-)]
-#[derive(Default)]
-pub struct ChangeStart {}
-
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "dde-connection-decls"
-)]
-#[derive(Default)]
-pub struct DdeConnectionDecls {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "h"
-)]
-#[derive(Default)]
-pub struct H {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "illustration-index"
-)]
-#[derive(Default)]
-pub struct IllustrationIndex {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "list"
-)]
-#[derive(Default)]
-pub struct List {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "numbered-paragraph"
-)]
-#[derive(Default)]
-pub struct NumberedParagraph {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "object-index"
-)]
-
-#[derive(Default)]
-pub struct ObjectIndex {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "p"
-)]
-#[derive(Default)]
-pub struct P {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "page-sequence"
-)]
-#[derive(Default)]
-pub struct PageSequence {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "section"
-)]
-#[derive(Default)]
-pub struct Section {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "sequence-decls"
-)]
-
-#[derive(Default)]
-pub struct SequenceDecls {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "soft-page-break"
-)]
-
-#[derive(Default)]
-pub struct SoftPageBreak {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "table-index"
-)]
-#[derive(Default)]
-pub struct TableIndex {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "table-of-content"
-)]
-#[derive(Default)]
-pub struct TableOfContent {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "table"
-)]
-#[derive(Default)]
-pub struct Table {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "tracked-changes"
-)]
-#[derive(Default)]
-pub struct TrackedChanges {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "user-field-decls"
-)]
-#[derive(Default)]
-pub struct UserFieldDecls {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "user-index"
-)]
-#[derive(Default)]
-pub struct UserIndex {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "variable-decls"
-)]
-#[derive(Default)]
-pub struct VariableDecls {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "linenumbering-configuration"
-)]
-#[derive(Default)]
-pub struct LinenumberingConfiguration {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "list-style"
-)]
-#[derive(Default)]
-pub struct ListStyle {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "notes-configuration"
-)]
-#[derive(Default)]
-pub struct NotesConfiguration {}
-
-#[define_element(
-    namespace = "TEXT_NS",
-    name = "outline-style"
-)]
-#[derive(Default)]
-pub struct OutlineStyle {}
+pub use alphabetical_index::AlphabeticalIndex;
+pub use alphabetical_index_auto_mark_file::AlphabeticalIndexAutoMarkFile;
+pub use bibliography::Bibliography;
+pub use bibliography_configuration::BibliographyConfiguration;
+pub use change::Change;
+pub use change_end::ChangeEnd;
+pub use change_start::ChangeStart;
+pub use dde_connection_decls::DdeConnectionDecls;
+pub use h::H;
+pub use illustration_index::IllustrationIndex;
+pub use list::List;
+pub use numbered_paragraph::NumberedParagraph;
+pub use object_index::ObjectIndex;
+pub use p::P;
+pub use page_sequence::PageSequence;
+pub use section::Section;
+pub use sequence_decls::SequenceDecls;
+pub use soft_page_break::SoftPageBreak;
+pub use table_index::TableIndex;
+pub use table_of_content::TableOfContent;
+pub use table::Table;
+pub use tracked_changes::TrackedChanges;
+pub use user_field_decls::UserFieldDecls;
+pub use user_index::UserIndex;
+pub use variable_decls::VariableDecls;
+pub use linenumbering_configuration::LinenumberingConfiguration;
+pub use line_style::ListStyle;
+pub use notes_configuration::NotesConfiguration;
+pub use outline_style::OutlineStyle;
+pub use a::A;
+pub use alphabetical_index_mark::AlphabeticalIndexMark;
+pub use alphabetical_index_mark_end::AlphabeticalIndexMarkEnd;
+pub use author_initials::AuthorInitials;
+pub use author_name::AuthorName;
+pub use bibliography_mark::BibliographyMark;
+pub use bookmark::Bookmark;
+pub use bookmark_end::BookmarkEnd;
+pub use bookmark_ref::BookmarkRef;
+pub use bookmark_start::BookmarkStart;
+pub use chapter::Chapter;
+pub use character_count::CharacterCount;
+pub use conditional_text::ConditionalText;
+pub use creation_date::CreationDate;
+pub use creation_time::CreationTime;
+pub use creator::Creator;
+pub use database_display::DatabaseDisplay;
+pub use database_name::DatabaseName;
+pub use database_next::DatabaseNext;
+pub use database_row_number::DatabaseRowNumber;
+pub use database_row_select::DatabaseRowSelect;
+pub use date::Date;
+pub use dde_connection::DdeConnection;
+pub use description::Description;

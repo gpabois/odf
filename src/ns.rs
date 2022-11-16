@@ -20,10 +20,16 @@ pub static DC_NS: &'static str = "http://purl.org/dc/elements/1.1/";
 pub static XLINK_NS: &'static str = "http://www.w3.org/1999/xlink";
 pub static MATH_NS: &'static str = "http://www.w3.org/1998/Math/MathML";
 pub static XFORMS_NS: &'static str = "http://www.w3.org/2002/xforms";
+pub static XHTML_NS: &'static str = "http://www.w3.org/1999/xhtml";
+pub static GRDDL_NS: &'static str = "http://www.w3.org/2003/g/data-view#";
+pub static PKG_NS: &'static str = "http://docs.oasis-open.org/ns/office/1.2/meta/pkg#";
 /// Définit les préfixes sur le noeud racine du document XML
 pub fn setup_prefixes(builder: minidom::ElementBuilder) -> minidom::ElementBuilder
 {
     builder.prefix(Some("style".to_string()), STYLE_NS).unwrap()
+    .prefix(Some("xhtml".to_string()), XHTML_NS).unwrap()
+    .prefix(Some("grddl".to_string()), GRDDL_NS).unwrap()
+    .prefix(Some("pkg".to_string()), PKG_NS).unwrap()
     .prefix(Some("office".to_string()), OFFICE_NS).unwrap()
     .prefix(Some("meta".to_string()), META_NS).unwrap()
     .prefix(Some("config".to_string()), CONFIG_NS).unwrap()

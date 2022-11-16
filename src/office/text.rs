@@ -3,7 +3,7 @@ use crate::{dr3d};
 use crate::draw;
 use crate::table;
 use crate::ns::OFFICE_NS;
-use std::str::FromStr;
+
 
 use odf_macros::{define_child_elements, define_element};
 
