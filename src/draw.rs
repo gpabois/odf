@@ -23,6 +23,8 @@ mod marker;
 mod opacity;
 mod layer_set;
 mod stroke_dash;
+mod text_box;
+mod image;
 
 pub use a::A;
 pub use caption::Caption;
@@ -49,3 +51,5 @@ pub use marker::Marker;
 pub use opacity::Opacity;
 pub use stroke_dash::StrokeDash;
 pub use layer_set::LayerSet;
+pub use text_box::TextBox;
+pub use image::Image;

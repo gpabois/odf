@@ -17,6 +17,7 @@ pub mod config;
 pub mod style;
 pub mod number;
 pub mod svg;
+pub mod form;
 
 use minidom::Element;
 
